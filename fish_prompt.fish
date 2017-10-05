@@ -6,6 +6,7 @@ function prompt_get_user -d "Print the user"
     set_color cyan
   end
   printf '%s' (whoami)
+  set_color normal
 end
 
 # Get Machines Hostname
@@ -17,16 +18,18 @@ function prompt_get_host -d "Get Hostname"
     set_color yellow
   end
   printf '%s' (hostname|cut -d . -f 1)
+  set_color normal
 end
 
 # Get Project Working Directory
 function prompt_get_pwd -d "Get PWD"
   set_color red
-  printf '%s ' (prompt_pwd)
+  printf '%s '(prompt_pwd)
+  set_color normal
 end
 
 # Set GIT prompt
-function prompt_git -d "Get GIT status"
+function prompt_get_git -d "Get GIT status"
   # For more info, see: https://github.com/fish-shell/fish-shell/blob/master/share/functions/__fish_git_prompt.fish
   if not set -q __fish_prompt_hostname
     set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
@@ -52,25 +55,24 @@ function fish_prompt
 
   # Logged in user
   prompt_get_user
-  set_color normal
   printf ' at '
 
   # Machine logged in to
   prompt_get_host
-  set_color normal
   printf ' in '
 
   # Path
   prompt_get_pwd
-  set_color normal
 
   # Git info
-  prompt_git
+  prompt_get_git
 
   # Line 2
   echo
   if test $VIRTUAL_ENV
-    printf "(python:%s) " (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
+    set_color blue
+    printf '(python:%s) '(basename $VIRTUAL_ENV)
+    set_color normal
   end
 
   if test $last_status -eq 127
