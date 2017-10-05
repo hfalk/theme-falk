@@ -12,8 +12,8 @@ function tbytes -d 'Calculates the total size of the files in the current direct
 end
 
 function fish_right_prompt -d "Write out the right prompt"
-  set_color blue
-  printf '%s' (tbytes)
+  #set_color blue
+  #printf '%s' (tbytes)
   # Timestamp
   set_color 555
   printf '%s' (date "+%H:%M:%S")
