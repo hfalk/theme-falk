@@ -11,10 +11,11 @@ function tbytes -d 'Calculates the total size of the files in the current direct
   echo -n "$total$units"
 end
 
-function fish_right_prompt -d "Write out the right prompt"
+function fish_right_prompt
+  set -l code $status
   #set_color blue
   #printf '%s' (tbytes)
   # Timestamp
   set_color yellow
-  date
+  printf (dim)(date +%H(fst):(dim)%M(fst):(dim)%S)(off)" "
 end
