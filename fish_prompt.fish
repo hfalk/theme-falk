@@ -27,7 +27,7 @@ end
 
 # Set GIT prompt
 function prompt_git -d "Get GIT status"
-  # Just calculate these once, to save a few cycles when displaying the prompt
+  # For more info, see: https://github.com/fish-shell/fish-shell/blob/master/share/functions/__fish_git_prompt.fish
   if not set -q __fish_prompt_hostname
     set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
   end
@@ -45,6 +45,7 @@ function prompt_git -d "Get GIT status"
   set -g __fish_git_prompt_showcolorhints true
 
   printf '(%s)' (__fish_git_prompt)
+end
 
 function fish_prompt
   set -l code $status
