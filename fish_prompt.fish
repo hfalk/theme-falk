@@ -52,7 +52,9 @@ end
 
 function fish_prompt
   set -l last_status $status
-
+  set_color $fish_color_autosuggestion ^/dev/null; or set_color 555
+  date "+%H:%M:%S"
+  set_color normal
   # Logged in user
   prompt_get_user
   printf ' at '
