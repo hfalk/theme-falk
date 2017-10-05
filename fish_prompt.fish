@@ -47,7 +47,7 @@ function prompt_get_git -d "Get GIT status"
   set -g __fish_git_prompt_show_informative_status true
   set -g __fish_git_prompt_showcolorhints true
 
-  printf '%s'(__fish_git_prompt)
+  __fish_git_prompt
 end
 
 function fish_prompt
