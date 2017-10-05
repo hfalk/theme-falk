@@ -21,7 +21,7 @@ end
 
 # Get Project Working Directory
 function prompt_pwd -d "Get PWD"
-  set_color $fish_color_cwd
+  set_color red
   printf '%s ' (prompt_pwd)
 end
 
@@ -44,7 +44,7 @@ function prompt_git -d "Get GIT status"
   set -g __fish_git_prompt_show_informative_status true
   set -g __fish_git_prompt_showcolorhints true
 
-  printf '(%s)' (__fish_git_prompt)
+  printf '%s'(__fish_git_prompt)
 end
 
 function fish_prompt
