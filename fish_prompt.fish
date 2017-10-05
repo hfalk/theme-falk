@@ -20,7 +20,7 @@ function prompt_get_host -d "Get Hostname"
 end
 
 # Get Project Working Directory
-function prompt_pwd -d "Get PWD"
+function prompt_get_pwd -d "Get PWD"
   set_color red
   printf '%s ' (prompt_pwd)
 end
@@ -61,7 +61,7 @@ function fish_prompt
   printf ' in '
 
   # Path
-  prompt_pwd
+  prompt_get_pwd
   set_color normal
 
   # Git info
