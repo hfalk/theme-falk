@@ -15,6 +15,6 @@ function fish_right_prompt -d "Write out the right prompt"
   #set_color blue
   #printf '%s' (tbytes)
   # Timestamp
-  set_color 555
-  printf '%s' (date "+%H:%M:%S")
+  set_color yellow
+  printf '%s' (date)
 end
