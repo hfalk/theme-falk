@@ -48,7 +48,7 @@ function prompt_git -d "Get GIT status"
 end
 
 function fish_prompt
-  set -l code $status
+  set -l last_status $status
 
   # Logged in user
   prompt_get_user
@@ -73,7 +73,7 @@ function fish_prompt
     printf "(python:%s) " (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
   end
 
-  if test $code -eq 127
+  if test $last_status -eq 127
     set_color red
   end
 
